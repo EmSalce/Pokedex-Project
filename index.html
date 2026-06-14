@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokeDex</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <form id="search-form">
+          <input
+            id="search-input"
+            list="search-list"
+            placeholder="Search by Name"
+          />
+          <datalist id="search-list"></datalist>
+          <!-- Submit Button inside input for compact design -->
+          <button type="submit">SEARCH</button>
+        </form>
+      </div>
+    </header>
+
+    <div id="pokedex-grid" class="pokedex-grid">
+      <!-- Pokemon Cards -->
+    </div>
+
+    <footer>
+      <button
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        id="btnTop"
+        alt="Return to Top"
+      >
+        ↑
+      </button>
+    </footer>
+
+    <div id="pokemon-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="close-modal">&times;</span>
+        </div>
+
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  </body>
+  <script src="/script.js"></script>
+</html>
