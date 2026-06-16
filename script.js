@@ -36,7 +36,7 @@ async function fetchPokemon() {
               <div class="poke-card" id="${poke.name}">
               <h3 class="poke-name">${poke.name}</h3>
               <p class="poke-id">#${poke.id}</p>
-              <img class="poke-sprite" src=${poke.sprites.front_default} alt="${poke.name}" />
+              <img loading="lazy" class="poke-sprite" src=${poke.sprites.front_default} alt="${poke.name}" />
               <div class="poke-types">
                  ${typeBadges}
               </div>
@@ -44,11 +44,11 @@ async function fetchPokemon() {
     });
     pokedexGrid.innerHTML = htmlString;
 
-    document.querySelectorAll('.poke-card').forEach((card) => {
-      card.addEventListener('click', () => {
-        const selectPoke = pokemon.find((p) => p.name === card.id);
-        showDetails(selectPoke);
-      });
+    pokedexGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.poke-card');
+      if (!card) return;
+      const selectedPokemon = pokemon.find((p) => p.name === card.id);
+      showDetails(selectedPokemon);
     });
     // searchList.innerHTML = datalistOptions;
   } catch (error) {
@@ -59,21 +59,46 @@ async function fetchPokemon() {
 //Run the function
 fetchPokemon();
 
-//Add a search feature to jump to a Pokemon and highlight it for a second
+//Add a search feature
+let searchTimeout;
+
 searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimeout);
+
+  searchTimeout = setTimeout(() => {
+    const search = searchInput.value.toLowerCase();
+    searchList.innerHTML = '';
+    if (search.length < 2) return;
+
+    pokemon
+      .filter((poke) => poke.name.includes(search))
+      .forEach((poke) => {
+        const option = document.createElement('option');
+        option.value = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
+
+        searchList.appendChild(option);
+      });
+  }, 150);
+});
+
+//Jump to the searched Pokemon and highlight it
+searchInput.addEventListener('change', () => {
   const search = searchInput.value.toLowerCase();
 
-  searchList.innerHTML = '';
+  const card = document.getElementById(search);
 
-  if (search.length < 2) return;
-
-  pokemon
-    .filter((poke) => poke.name.includes(search))
-    .forEach((poke) => {
-      const option = document.createElement('option');
-      option.value = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
-      searchList.appendChild(option);
+  if (card) {
+    card.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
     });
+
+    card.classList.add('highlight');
+
+    setTimeout(() => {
+      card.classList.remove('highlight');
+    }, 3000);
+  }
 });
 
 //Add a Pop-up style Modal to display more information
@@ -113,13 +138,20 @@ function showDetails(poke) {
       <p><strong>#${poke.id}</strong></p>
 
       <img
-        class="modal-sprite"
+        loading="lazy"
+        class="modal-artwork"
+        id="modal-artwork"
         src="${
           poke.sprites.other['official-artwork'].front_default ||
           poke.sprites.front_default
         }"
         alt="${poke.name}"
       />
+
+    <label class="shiny-switch">
+      <input type="checkbox" id="shiny-toggle">
+      <span>Shiny</span>
+    </label>
 
       <div class="poke-types">
         ${poke.types
@@ -153,6 +185,20 @@ function showDetails(poke) {
 `;
 
   modal.style.display = 'flex';
+
+  const artwork = document.getElementById('modal-artwork');
+  const toggle = document.getElementById('shiny-toggle');
+  toggle.checked = false;
+  const normal =
+    poke.sprites.other['official-artwork'].front_default ||
+    poke.sprites.front_default;
+  const shiny =
+    poke.sprites.other['official-artwork'].front_shiny ||
+    poke.sprites.front_shiny;
+
+  toggle.addEventListener('change', () => {
+    artwork.src = toggle.checked ? shiny : normal;
+  });
 }
 //Close the modal
 closeModal.addEventListener('click', () => {

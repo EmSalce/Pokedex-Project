@@ -5,7 +5,7 @@
 
 body {
   padding: 1% 8% 1% 8%;
-  background-color: #68aef0;
+  background-color: #222224;
   color: white;
 }
 
@@ -29,12 +29,11 @@ button {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
-  background-color: #68aef0;
 }
 
 .poke-card {
-  background-color: #0073cf;
-  border: 1px solid #dee2e6;
+  background-color: #2a75bb;
+  border: 1px solid #222224;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
@@ -43,15 +42,20 @@ button {
 }
 
 .poke-card:hover {
-  background-color: #014d8b;
+  background-color: #3b4cca;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
+.highlight {
+  box-shadow: 0 0 20px yellow;
+  transform: scale(1.05);
+}
+
 .poke-sprite {
-  border-radius: 1em;
-  border: white;
-  border-style: solid;
+  /* border-radius: 1em;
+  border: #222224;
+  border-style: solid; */
   width: 96px;
   height: 96px;
 }
@@ -63,8 +67,8 @@ button {
 .poke-types span {
   display: inline-block;
   padding: 5px 10px;
-  border-color: white;
-  border: white;
+  border-color: #222224;
+  border: #222224;
   border-radius: 5px;
   color: white;
   font-weight: bold;
@@ -163,7 +167,7 @@ button {
   height: 50px;
   border: none;
   border-radius: 50%;
-  background: #4caf50;
+  background: #ee1515;
   color: white;
   font-size: 20px;
   cursor: pointer;
@@ -181,7 +185,7 @@ button {
 }
 
 .modal-content {
-  background: #0073cf;
+  background: #2a75bb;
   color: white;
   width: min(92vw, 500px);
   max-height: 90vh;
