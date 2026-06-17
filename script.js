@@ -1,6 +1,7 @@
 const pokedexGrid = document.getElementById('pokedex-grid');
 const searchList = document.getElementById('search-list');
 const searchInput = document.getElementById('search-input');
+const searchForm = document.getElementById('search-form');
 let pokemon = [];
 
 // Automatically generate a card for each Pokemon
@@ -59,7 +60,7 @@ async function fetchPokemon() {
 //Run the function
 fetchPokemon();
 
-//Add a search feature
+//Add suggestions when typing in names
 let searchTimeout;
 
 searchInput.addEventListener('input', () => {
@@ -81,24 +82,28 @@ searchInput.addEventListener('input', () => {
   }, 150);
 });
 
-//Jump to the searched Pokemon and highlight it
-searchInput.addEventListener('change', () => {
-  const search = searchInput.value.toLowerCase();
-
+//Search for a Pokemon, jump to it, and highlight it
+function searchPokemon() {
+  const search = searchInput.value.toLowerCase().trim();
   const card = document.getElementById(search);
 
-  if (card) {
-    card.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    });
+  if (!card) return;
 
-    card.classList.add('highlight');
+  card.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center',
+  });
 
-    setTimeout(() => {
-      card.classList.remove('highlight');
-    }, 3000);
-  }
+  card.classList.add('highlight');
+
+  setTimeout(() => {
+    card.classList.remove('highlight');
+  }, 3000);
+}
+
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // Stop page refresh
+  searchPokemon();
 });
 
 //Add a Pop-up style Modal to display more information
@@ -147,10 +152,12 @@ function showDetails(poke) {
         }"
         alt="${poke.name}"
       />
-
+    
     <label class="shiny-switch">
+      <span class="toggle-text">Normal</span>
       <input type="checkbox" id="shiny-toggle">
-      <span>Shiny</span>
+      <span class="slider"></span>
+      <span class="toggle-text">Shiny</span>
     </label>
 
       <div class="poke-types">
