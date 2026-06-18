@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PokeDex</title>
     <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    />
   </head>
   <body>
     <header>
+      <!-- Search input and button -->
       <div>
         <form id="search-form">
           <input
@@ -16,17 +21,18 @@
             placeholder="Search by Name"
           />
           <datalist id="search-list"></datalist>
-          <!-- Submit Button inside input for compact design -->
           <button type="submit">SEARCH</button>
         </form>
       </div>
     </header>
 
+    <!-- Grid for the cards -->
     <div id="pokedex-grid" class="pokedex-grid">
-      <!-- Pokemon Cards -->
+      <!-- Cards go here -->
     </div>
 
     <footer>
+      <!-- Button to return to top -->
       <button
         onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
         id="btnTop"
@@ -36,6 +42,7 @@
       </button>
     </footer>
 
+    <!-- Big window with details -->
     <div id="pokemon-modal" class="modal">
       <div class="modal-content">
         <div class="modal-header">

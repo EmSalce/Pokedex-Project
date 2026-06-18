@@ -4,8 +4,9 @@
 }
 
 body {
-  padding: 1% 8% 1% 8%;
-  background-color: #222224;
+  padding: 0.5% 2% 0.5% 2%;
+  /* background-color: #222224; */
+  background-color: whitesmoke;
   color: white;
 }
 
@@ -29,10 +30,11 @@ button {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
+  background-color: #222224;
 }
 
 .poke-card {
-  background-color: #2a75bb;
+  background-color: #2a99bb;
   border: 1px solid #222224;
   border-radius: 10px;
   padding: 15px;
@@ -42,14 +44,15 @@ button {
 }
 
 .poke-card:hover {
-  background-color: #37a0f7;
+  background-color: #34c6f3;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .highlight {
-  box-shadow: 0 0 20px #37a0f7;
+  box-shadow: 0 0 40px #34edf3;
   transform: scale(1.05);
+  border: 3px solid #34edf3;
 }
 
 .poke-sprite {
@@ -130,21 +133,6 @@ button {
   background-color: #ee99ac;
 }
 
-/* .poke-details {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition:
-    max-height 0.4s ease,
-    opacity 0.3s ease;
-}
-
-.poke-card.expanded .poke-details {
-  max-height: 300px;
-  opacity: 1;
-  margin-top: 10px;
-} */
-
 .pokemon-layout {
   display: flex;
   flex-direction: column;
@@ -185,7 +173,7 @@ button {
 }
 
 .modal-content {
-  background: #2a75bb;
+  background: #2a99bb;
   color: white;
   width: min(92vw, 500px);
   max-height: 90vh;
@@ -195,8 +183,8 @@ button {
   position: relative;
   text-transform: capitalize;
   text-align: center;
-  border: solid;
-  border-color: white;
+  border: 4px solid #34edf3;
+  box-shadow: 16px 16px 16 #34edf3;
 }
 
 .shiny-switch {
@@ -299,7 +287,7 @@ button {
   display: block;
   margin: auto;
   border: solid;
-  border-color: white;
+  border-color: #34edf3;
   border-radius: 15px;
 }
 
