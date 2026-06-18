@@ -3,6 +3,74 @@
   font-weight: bolder;
 }
 
+/* Pokedex Header */
+
+/* Title */
+.pokedex-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+
+  padding: 24px 28px;
+  border: 6px solid #5b0010;
+  border-bottom-width: 14px;
+
+  background: linear-gradient(#e01433, #b10a22);
+  box-shadow:
+    inset 0 6px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.pokedex-header h1 {
+  color: white;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow:
+    1px 1px 0 #000,
+    3px 3px 0 #7a0000;
+  margin: 0;
+}
+
+/* Lights */
+.pokedex-lights {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.light {
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.light.big {
+  width: 22px;
+  height: 22px;
+  background: #4fd3ff;
+}
+
+.light.red {
+  width: 10px;
+  height: 10px;
+  background: #ff3b3b;
+}
+
+.light.yellow {
+  width: 10px;
+  height: 10px;
+  background: #ffd84d;
+}
+
+.light.green {
+  width: 10px;
+  height: 10px;
+  background: #42ff7b;
+}
+
 body {
   padding: 0.5% 2% 0.5% 2%;
   /* background-color: #222224; */
@@ -12,17 +80,30 @@ body {
 
 #search-form {
   display: flex;
-  align-content: center;
-  justify-content: center;
-  cursor: text;
+  gap: 8px;
+  margin-left: auto;
 }
 
 button {
   cursor: pointer;
+  padding: 8px 10px;
+  border: 3px solid #5b0010;
+  background: #222;
+  color: white;
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #444;
 }
 
 #search-input {
   text-transform: capitalize;
+  padding: 8px;
+  border: 3px solid #5b0010;
+  background: #fff;
 }
 
 .pokedex-grid {
@@ -133,6 +214,23 @@ button {
   background-color: #ee99ac;
 }
 
+.pokedex-footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  padding: 24px 28px;
+  border: 6px solid #5b0010;
+  border-bottom-width: 14px;
+
+  background: linear-gradient(#e01433, #b10a22);
+  box-shadow:
+    inset 0 3px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -10px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Modal Things */
 .pokemon-layout {
   display: flex;
   flex-direction: column;
@@ -292,6 +390,10 @@ button {
 }
 
 @media (width >= 600px) {
+  .pokedex-header {
+    justify-content: normal;
+  }
+
   .pokemon-layout {
     display: grid;
     grid-template-columns: 300px 1fr;

@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PokeDex</title>
     <link rel="stylesheet" href="/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-    />
   </head>
   <body>
-    <header>
+    <header class="pokedex-header">
+      <div class="pokedex-lights">
+        <div class="light big"></div>
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+      </div>
+      <h1>Pokedex</h1>
       <!-- Search input and button -->
       <div>
         <form id="search-form">
@@ -31,7 +34,7 @@
       <!-- Cards go here -->
     </div>
 
-    <footer>
+    <footer class="pokedex-footer">
       <!-- Button to return to top -->
       <button
         onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
