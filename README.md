@@ -76,19 +76,4 @@ Pokémon information is provided by:
 
 The project retrieves data for Pokémon #1–#151 from the PokéAPI.
 
-## 📁 Project Structure
-
-Pokedex-Project/
-│
-├── index.html
-├── types.html
-│
-├── pokemon-data.js
-├── script.js
-├── types.js
-│
-├── style.css
-│
-└── README.md
-
-This ReadMe was created using AI
+This ReadMe was created entirely with AI, and AI was used to touch up the project
