@@ -27,7 +27,16 @@
           <button type="submit">SEARCH</button>
         </form>
       </div>
+      <!-- Navigation Buttons -->
+      <nav class="pokedex-nav">
+        <a href="/index.html" class="nav-button active">Pokédex</a>
+        <a href="/types.html" class="nav-button">Type Explorer</a>
+      </nav>
     </header>
+    <!-- Loading text before Pokemon Grid pops up -->
+    <div id="loading">
+      <div class="load-text">Now Loading...</div>
+    </div>
 
     <!-- Grid for the cards -->
     <div id="pokedex-grid" class="pokedex-grid">
@@ -43,6 +52,24 @@
       >
         ↑
       </button>
+
+      <p>Pokédex Project © 2026</p>
+
+      <p>
+        Pokémon data provided by
+        <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>
+      </p>
+
+      <p>
+        Built by
+        <a
+          href="https://github.com/EmSalce"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Emilio Salce
+        </a>
+      </p>
     </footer>
 
     <!-- Big window with details -->
@@ -55,6 +82,7 @@
         <div id="modal-body"></div>
       </div>
     </div>
+    <script src="pokemon-data.js"></script>
+    <script src="/script.js"></script>
   </body>
-  <script src="/script.js"></script>
 </html>
