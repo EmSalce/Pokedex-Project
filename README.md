@@ -4,10 +4,6 @@ A Gen 1-inspired interactive Pokédex built with HTML, CSS, and JavaScript.
 
 This project uses the [PokéAPI](https://pokeapi.co/) to retrieve information about the original 151 Pokémon and presents it through a retro-inspired Pokédex interface.
 
-## 🌐 Live Demo
-
-[View the Live Pokédex](#)
-
 ## 📖 About the Project
 
 The Pokédex Project was created as a front-end web development project to practice working with APIs, asynchronous JavaScript, DOM manipulation, responsive design, and interactive user interfaces.
@@ -94,3 +90,5 @@ Pokedex-Project/
 ├── style.css
 │
 └── README.md
+
+This ReadMe was created using AI
